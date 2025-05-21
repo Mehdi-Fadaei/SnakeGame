@@ -35,14 +35,16 @@ while game_is_one:
 
     # coalition border from -270 to 270 in x and y
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        game_is_one = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
+
 
     # colliding white own tail
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 5:
-            game_is_one = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
+
 
 
 screen.exitonclick() # last line all time ++++++++++++++++++++++++++++++
